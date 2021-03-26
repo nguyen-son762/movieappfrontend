@@ -1,0 +1,119 @@
+@import "../../App.scss";
+.film {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  @include mobile{
+    padding-bottom: 1rem;
+  }
+  &__item {
+    position: relative;
+    min-width: 20%;
+    max-width: 20%;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+    @include desktop{
+      min-width: 25%;
+      max-width: 20%;
+    }
+    @include tablet{
+      min-width: 33.33%;
+    }
+    @include mobile{
+      min-width: 50%;
+    }
+    &--status {
+      position: absolute;
+      background-color: var(--yellow-color);
+      top: 0;
+      left: 0.5rem;
+      padding: 0.3rem 0.5rem;
+      border-top-left-radius: 0.6rem;
+      border-bottom-right-radius: 0.6rem;
+      z-index: 10;
+      &::before {
+        content: "";
+        border: 4px solid transparent;
+        border-bottom: 4px solid #36b0b0;
+        transform: rotate(44deg);
+        position: absolute;
+        bottom: -4px;
+        left: 1px;
+        z-index: 999999;
+      }
+      p {
+        font-size: 0.9rem;
+        color: #fff;
+        font-weight: 500;
+      }
+    }
+    &__link {
+      position: relative;
+      text-decoration: none;
+      text-align: center;
+      color: var(--yellow-color);
+      p {
+        background-color: #202a34;
+        border-radius: 0.6rem;
+        padding: 0.5rem 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+      }
+      .thumbnail {
+        position: relative;
+        border-radius: 0.6rem;
+        overflow: hidden;
+        z-index: 1;
+        &__img {
+          position: relative;
+          width: 100%;
+          height: 20rem;
+          @include mobile{
+            height: 15rem;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.6rem;
+            transition: all 0.3s;
+            z-index: 1;
+          }
+        }
+        &:hover .thumbnail__img img {
+          transform: scale(1.2);
+        }
+        &:hover .overlay {
+          opacity: 0.5 !important;
+          visibility: visible !important;
+        }
+        &:hover + p {
+          background-color: #000000;
+        }
+        .overlay {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 0.5rem;
+          top: 0;
+          left: -1rem;
+          width: 110%;
+          height: 100%;
+
+          background-color: rgba(0, 0, 0, 1);
+          transition: all 0.3s;
+          opacity: 0;
+          z-index: 6;
+          i {
+            color: #fff;
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

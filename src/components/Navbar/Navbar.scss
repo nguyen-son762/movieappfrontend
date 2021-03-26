@@ -1,0 +1,62 @@
+@import "../../App.scss";
+.navbar {
+  padding: 0 calc((100vw - 1030px) / 2);
+  background-color: var(--gray-color);
+  border-bottom: 1px solid var(--main-color);
+  transition: all 0.5s;
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    @include tablet {
+      display: none;
+    }
+    li {
+      border-right: 1px solid var(--white-color);
+      line-height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      .link_nav {
+        text-decoration: none;
+        color: #ed9b06;
+        width: 100%;
+        text-align: center;
+        transition: all 0.3s;
+        &:hover {
+          background: var(--main-color);
+          color: #fff;
+        }
+      }
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+  &__tablet {
+    display: none;
+    @include tablet{
+        display: inline;
+    }
+    &-toggle {
+      padding-top: 0.5rem;
+      margin-left: 1rem;
+      padding-bottom: 0.5rem;
+      cursor: pointer;
+      i {
+        color: var(--nav-color);
+        font-size: 1.3rem;
+      }
+    }
+    &-list {
+      display: none;
+      @include tablet {
+        display: block;
+      }
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

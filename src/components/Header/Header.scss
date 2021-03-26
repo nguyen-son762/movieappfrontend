@@ -1,0 +1,97 @@
+@import '../../App.scss';
+.header{
+    padding: 1rem calc((100vw - 1030px) / 2);
+    background-color: var(--header-background);
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.5s;
+    @include desktop-lg{
+        padding: 1rem 1rem;
+    }
+    @include tablet{
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    &__logo{
+        img{
+            width: 18.5rem;
+            height: 1.9rem;
+            object-fit: cover;
+            @include mobile{
+                width: 12rem;
+                height: auto;
+            }
+        }
+        @include tablet{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+        }
+    }
+    &__search{
+        position: relative;
+        @include mobile{
+            flex: 1;
+        }
+        input{
+            padding: 0.5rem 2rem;
+            width: 27rem;
+            border: 1px solid var(--main-color);
+            background-color: var(--input-header);
+            border-radius: 2rem;
+            color: #fff;
+            outline: none;
+            transition: all 0.9s;
+            @include desktop{
+                width: 15rem;
+            }
+            @include mobile{
+                width: 100%;
+            }
+            &:focus{
+                border-radius: 0.3rem;
+            }
+            &::placeholder{
+                color: #fff;
+            }
+        }
+        i{
+            position: absolute;
+            top: 50%;
+            left: 0.6rem;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #fff;
+        }
+    }
+    &__login{
+        @include mobile{
+            flex: 1;
+        }
+        button{
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            outline: none;
+            border:1px solid var(--main-color);
+            background-color: var(--input-header);
+            color: #fff;
+            cursor: pointer;
+            @include mobile{
+                width: 100%;
+            }
+        }
+    }
+}
+.header__user{
+    display: flex;
+    align-items: center;
+    
+    p{
+        margin-right: 1rem;
+        color: #fff;
+        @include desktop{
+            display: none;
+        }
+    }
+}

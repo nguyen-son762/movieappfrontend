@@ -1,0 +1,41 @@
+@import '../../App.scss';
+.footer{
+    display: flex;
+    background-color: #192028;
+    padding: 0 calc((100vw - 1030px) / 2);
+    @include tablet{
+        flex-wrap: wrap;
+    }
+    &__img{
+        margin-top: 1rem;
+        @include tablet{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            max-width: 14rem;
+            max-height: 5rem;
+            object-fit: cover;
+        }
+    }
+    &--right{
+        display: flex;
+        margin-right: 2rem;
+        @include tablet{
+            margin-right: 0;
+        }
+        &__item{
+            margin: 1rem 2rem;
+            margin-right: 5rem;
+            @include mobile{
+                margin: 0 1rem;
+            }
+            p{
+                color: #d9c807;
+                margin: 0.5rem 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,122 @@
+@import '../../common/mediaqueries.scss';
+.modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding-top: 5rem;
+  transform: scale(0);
+  opacity: 0;
+  z-index: 15;
+  @include mobile{
+    padding-top: 3rem;
+  }
+  &.active{
+    opacity: 1;
+    transform: scale(1);
+  }
+  div {
+    min-width: 35rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    height: fit-content;
+    transform: scale(0);
+    transition: all 0.3s;
+    z-index: 10;
+    @include tablet{
+      min-width: 22rem;
+    }
+    @include mobile{
+      min-width: 10rem;
+    }
+  }
+  &.active div{
+    transform: scale(1);
+  }
+  &--btn {
+    display: flex;
+    button {
+      width: 50%;
+      border: none;
+      outline: none;
+      border-top-right-radius: 0.5rem;
+      background-color: #d2d8d8;
+      line-height: 3rem;
+      cursor: pointer;
+      &:first-child {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0;
+      }
+      &.active {
+        background-color: #fff;
+      }
+    }
+  }
+  &--login, &--signup {
+    display: none;
+    margin: 2rem 1.5rem;
+    .modal-input{
+      margin: 1rem 0 0;
+      position: relative;
+      i {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        color: #d2d8d8;
+      }
+      input {
+        width: 100%;
+        padding: 0.9rem;
+        padding-left: 2.5rem;
+        font-size: 1rem;
+        border: 1px solid #d2d8d8;
+        border-radius: 0.25rem;
+        color: #343642;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        &:focus {
+          border-color: #343642;
+          -webkit-box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
+          box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
+          outline: none;
+        }
+      }
+
+    }
+    button{
+        margin-top: 2rem;
+        display: block;
+        width: 100%;
+        padding: 0.7rem 0;
+        background-color: var(--main-color);
+        outline: none;
+        border: none;
+        color: #fff;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 1.1rem;
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+  
+  
+  }
+  &--login.active, &--signup.active{
+    display: block;
+  }
+  .hide__back{
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+  }
+}

@@ -1,0 +1,59 @@
+@import "./../../App.scss";
+.cmt {
+  &--item {
+    display: flex;
+    padding-top: 1rem;
+    &__avatar {
+      text-align: center;
+      margin-right: 1rem;
+      i {
+        font-size: 2rem;
+        color: var(--black-color);
+      }
+    }
+    &__content {
+      &--name {
+        color: #e4bb24 !important;
+      }
+      p {
+        color: var(--black-color);
+      }
+    }
+  }
+  .input-cmt {
+    display: flex;
+    form {
+      flex: 1;
+      button {
+        display: block;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        outline: none;
+        border: 1px solid var(--main-color);
+        background-color: var(--input-header);
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.btn-remove {
+  margin-left: 3rem;
+  color: #385898;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.comment {
+  width: 50%;
+  height: 100px;
+  @include tablet{
+    width: 70%;
+  }
+  @include mobile{
+    width: 90%;
+  }
+}
+.nocmt{
+    color: var(--black-color);
+    margin: 1rem 0;
+}

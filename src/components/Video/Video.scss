@@ -1,0 +1,14 @@
+@import '../../common/mediaqueries.scss';
+.video{
+    width: 100%;
+    iframe{
+        width: 100%;
+        height: 35rem;
+        @include desktop{
+            height: 25rem;
+        }
+        @include mobile{
+            height: 20rem;
+        }
+    }
+}
