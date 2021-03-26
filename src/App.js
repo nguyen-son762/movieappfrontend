@@ -8,7 +8,7 @@ import TypePage from "./pages/TypeFilm";
 import NotFound from "./pages/NotFound";
 function App() {
   return (
-    <Router>
+    <Router basename={window.location.pathname || ''}>
       <Switch>
         <Route exact path="/" component={HomePage}></Route>
         <Route path="/film/:id" component={DetailsFilm}></Route>
