@@ -8,15 +8,18 @@ import FilmService from "../services/FilmService";
 function SearchPage(props) {
   const search = props.location.search;
   const query = new URLSearchParams(search).get("query");
-  const [list, setList] = useState([])
+  const [list, setList] = useState([]);
   useEffect(() => {
-    FilmService.searchFilm(query).then((data) =>
-      setList(data.data)
-    );
+    console.log('x')
+    FilmService.searchFilm(query).then((data) => {
+      setList(data.data);
+      console.log(data.data)
+    });
   }, [query]);
-  const showList=()=>{
-      let res=list.map((e,index)=>{
-          return  <>
+  const showList = () => {
+    let res = list.map((e, index) => {
+      return (
+        <>
           {" "}
           <Film
             key={index}
@@ -25,18 +28,29 @@ function SearchPage(props) {
             filmId={e.id}
           ></Film>{" "}
         </>
-      })
-      return res;
-  }
+      );
+    });
+    return res;
+  };
   return (
     <div>
       <Header />
       <Navbar />
       <div className="container">
-      <p className="nav_search">Tìm kiếm &gt; {query}</p>
-          {list.length!==0?<div className="film">
-          {showList()}
-          </div>:<p style={{color:"var(--black-color)",marginTop:"2rem",paddingBottom:"2rem"}}>Không có phim nào</p>}
+        <p className="nav_search">Tìm kiếm &gt; {query}</p>
+        {list.length !== 0 ? (
+          <div className="film">{showList()}</div>
+        ) : (
+          <p
+            style={{
+              color: "var(--black-color)",
+              marginTop: "2rem",
+              paddingBottom: "2rem",
+            }}
+          >
+            Không có phim nào
+          </p>
+        )}
       </div>
       <Dark />
       <Footer />

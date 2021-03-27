@@ -2,8 +2,7 @@
   "name": "movieapp",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://movieappjv.herokuapp.com/",
-  "homepage": "https://movieappw.herokuapp.com/",
+  "proxy": "http://localhost:8080",
   "secure": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",

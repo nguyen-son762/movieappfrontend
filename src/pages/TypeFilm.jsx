@@ -11,18 +11,21 @@ import Loading from "../common/Loading";
 function TypePage(props) {
   const [list, setList] = useState([]);
   const [pagi, setPagi] = useState(1);
+  const [open, setOpen] = useState(false);
   const search = useLocation().search;
   const page = new URLSearchParams(search).get("page");
   const [currentPage, setCurrentPage] = useState(page !== null ? page : 1);
   const slug = props.match.params.slug;
   useEffect(() => {
     if (page == null) {
+      setOpen(true)
       FilmService.getFilmCategory(slug, 1).then((data) => {
         setList(data.data.items);
         if (data.data.total) {
           setPagi(data.data.total);
         }
       });
+      setOpen(false)
     } else {
       FilmService.getFilmCategory(slug, page).then((data) =>
         setList(data.data.items)
@@ -74,14 +77,15 @@ function TypePage(props) {
       <Header />
       <Navbar />
       <div className="container">
-        {list.length !== 0 ? (
-          <>
-            <div className="film">{showFilmOdd()}</div>
-            <div className="pagination">{paginate()}</div>
-          </>
-        ) : (
-          <Loading />
-        )}
+        {open ? <Loading /> :"" }
+        <div className="film">{showFilmOdd()}</div>
+        <div className="pagination">
+          {slug !== "phim-le" ? (
+            <Link to={`/the-loai/${slug}?page=1`}>1</Link>
+          ) : (
+            paginate()
+          )}
+        </div>
       </div>
       <Dark />
       <Footer />

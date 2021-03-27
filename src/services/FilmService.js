@@ -8,8 +8,8 @@ class FilmService {
   getFilmById(id){
       return axios.get(`${FILM_REST_API_URL}/${id}`)
   }
-  searchFilm(keyword){
-      return axios.get(`${FILM_REST_API_URL}/search?query=${keyword}`)
+  searchFilm(query){
+      return axios.get(`${FILM_REST_API_URL}/search?query=${query}`)
   }
   getFilmCategory(type,page){
     return axios.get(`${FILM_REST_API_URL}/${type}?page=${page}`)

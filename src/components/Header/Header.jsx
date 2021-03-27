@@ -6,12 +6,11 @@ import { logout } from "../../actions/user.action";
 import ModalLogin from "../ModalLogin/ModalLogin";
 import "./Header.scss";
 function Header() {
-
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const logoutUser=()=>{
-    dispatch(logout())
-  }
+  const logoutUser = () => {
+    dispatch(logout());
+  };
   return (
     <>
       <div className="header">
@@ -23,14 +22,26 @@ function Header() {
             />
           </Link>
         </div>
-        <form action="/tim-kiem" method="GET" className="header__search">
+        <form action="/search" className="header__search">
           <input type="text" name="query" placeholder="Tìm kiếm..." />
-          <i className="fas fa-search"></i>
+          <button className="btn-search" type="submit">
+            {" "}
+            <i className="fas fa-search"></i>
+          </button>
         </form>
         <div className="header__login">
-          {user.isLogin &&user.user ? (
+          {user.isLogin && user.user ? (
             <div className="header__user">
-              <p style={{width:"7rem",textOverflow:"...",overflow:"hidden",whiteSpace:"nowrap"}}>{user.user.username}</p>
+              <p
+                style={{
+                  width: "7rem",
+                  textOverflow: "...",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {user.user.username}
+              </p>
               <button className="login--btn" onClick={logoutUser}>
                 Đăng xuất
               </button>
